@@ -3,26 +3,15 @@
 * waylau.com 2014-9-25
 */
 
+/*顶部区域样式*/
 .top-layout {
     height: 60px;
 }
 
-.buttom-layout {
-    height:30px;
-}
-.buttom-left {
-    float: left;
-    padding-left: 5px;
-}
-.buttom-right {
-    float: right;
-    padding-right: 5px;
-}
 .logo-text {
-    font-size:30px;
+    font-size:24px;
     font-family:'SimHei' ;
 }
-
 .top-left {
     float:left;
     height: 60px;
@@ -30,13 +19,11 @@
     position: relative;
 }
 
-.top-left div{
-    height: 60px;
-    margin:0px ;vertical-align: middle;
-}
-
 .top-left img {
-    margin:4px ;vertical-align: middle; border: 0
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    border: 0
 }
 
 .top-right {
@@ -52,8 +39,42 @@
 
 }
 
+/*左侧区域样式*/
+.left-layout {
+    width:140px;
+    margin: 0px auto;
+}
+.menu-item {
+
+    vertical-align: middle;
+}
 /*左侧导航菜单样式*/
 .easyui-accordion ul{list-style-type:none;margin:0px; padding:10px;}
 .easyui-accordion ul li{ padding:0px;}
 .easyui-accordion ul li div{margin:2px 0px;padding-left:10px;padding-top:2px;text-align: left;border:0;}
 .easyui-accordion ul li div img{margin:4px ;vertical-align: middle; border: 0}
+
+/*底部区域样式*/
+.buttom-layout {
+    height:30px;
+}
+.buttom-left {
+    float: left;
+    padding-left: 5px;
+}
+.buttom-right {
+    float: right;
+    padding-right: 5px;
+}
+
+
+
+/*主题换肤样式*/
+
+.theme {
+      margin: 10px auto;
+}
+
+.theme img {
+    border: 0;
+}

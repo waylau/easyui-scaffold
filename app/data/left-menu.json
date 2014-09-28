@@ -1,0 +1,34 @@
+{"data": [
+    {
+        "group": "分类",
+        "data": [
+            {
+                "title": "用户管理",
+                "icon": "images/left-menu/edit_48.png",
+                "url": "app/personal/index.html"
+            },
+            {
+                "title": "音乐管理",
+                "icon": "images/left-menu/music_48.png",
+                "url": "app/msg/index.html"
+            }
+        ]
+    },
+    {
+        "group": "分类2",
+        "data": [
+            {
+                "title": "视频管理",
+                "icon": "images/left-menu/vedio_48.png",
+                "url": "app/heip/index.html"
+            },
+            {
+                "title": "回收管理",
+                "icon": "images/left-menu/remove_48.png",
+                "url": "app/heip/index.html"
+            }
+        ]
+    }
+]
+
+}

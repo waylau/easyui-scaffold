@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
-    <link rel="stylesheet" type="text/css" href="bower_components/jquery-easyui-bower/themes/default/easyui.css">
+    <link id="easyui_theme_id" rel="stylesheet" type="text/css" href="bower_components/jquery-easyui-bower/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="bower_components/jquery-easyui-bower/themes/icon.css">
     <!-- bower:css -->
     <!-- endbower -->
@@ -28,7 +28,7 @@
               <img class="logo" src="images/logo.png" alt="logo" />
           </a>
 
-          <h1 class="logo-text">Creating packages</h1>
+          <a href="/" class="easyui-linkbutton" data-options="plain:true"><h1 class="logo-text"> Creating packages</h1></a>
       </div>
 
       <div class="top-right">
@@ -36,8 +36,7 @@
               <a id="person_detail_id" class="easyui-menubutton" plain="true" menu="#person_menu_id"> waylau</a>
               <a id="msg_id" href="javascript:void(0);" class="easyui-linkbutton" plain="true"
                  onclick="javascript:addTabContent('消息','app/msg/index.html' );return false;"> 消息</a>
-              <a href="javascript:void(0);" class="easyui-linkbutton" plain="true"
-                 onclick="javascript:addTabHref('换肤','app/theme/index.html' );return false;"> 换肤</a>
+              <a id="theme_id" href="javascript:void(0);" class="easyui-linkbutton" plain="true"> 换肤</a>
               <a href="javascript:void(0);" class="easyui-linkbutton" target="_blank" plain="true"
                  onclick="javascript:window.open( 'app/personal/index.html');return false;">帮助</a>
           </div>
@@ -51,14 +50,41 @@
       </div>
 
   </div>
-    <div id="dlg" class="easyui-dialog" title="Basic Dialog" data-options="iconCls:'icon-save'" style="width:400px;height:200px;padding:10px">
-        The dialog content.
-    </div>
+
+  <!--左侧导航-->
+  <div class="left-layout" data-options="region:'west',split:false,title:'菜单'" >
+      <div id="left-menu-content-id" class="easyui-accordion" border="false" style="width:120px;"  fit="false"  >
+
+      </div>
+
+  </div>
+
+  <!--主内容区-->
+  <div data-options="region:'center'" border="true">
+      <div id="tabs" class="easyui-tabs" fit="true" border="false">
+      </div>
+  </div>
+
+  <!--底部信息-->
+  <div class="buttom-layout" data-options="region:'south',border:false" >
+      <div class="buttom-left">
+          版权所有：<a href="javascript:void(0);" class="easyui-linkbutton" target="_blank" plain="true"
+                  onclick="javascript:window.open( 'http://www.waylau.com');return false;"> www.waylau.com</a>&nbsp &nbsp
+          &nbsp
+          version 0.9
+      </div>
+
+      <div class="buttom-right">
+          <div id="dateime_id"></div>
+      </div>
+
+  </div>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/jquery-easyui-bower/jquery.easyui.min.js"></script>
+    <script src="bower_components/jquery-cookie/jquery.cookie.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -73,6 +99,8 @@
     </script>
     -->
         <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/date-util.js"></script>
+        <script src="scripts/easyui-theme-change.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>
