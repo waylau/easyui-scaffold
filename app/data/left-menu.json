@@ -20,12 +20,12 @@
             {
                 "title": "视频管理",
                 "icon": "images/left-menu/vedio_48.png",
-                "url": "app/heip/index.html"
+                "url": "app/help/index.html"
             },
             {
                 "title": "回收管理",
                 "icon": "images/left-menu/remove_48.png",
-                "url": "app/heip/index.html"
+                "url": "app/help/index.html"
             }
         ]
     }
