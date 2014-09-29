@@ -41,18 +41,18 @@
 
 /*左侧区域样式*/
 .left-layout {
-    width:140px;
-    margin: 0px auto;
+    width:180px;
 }
 .menu-item {
 
     vertical-align: middle;
 }
-/*左侧导航菜单样式*/
+/*左侧导航菜单样式
 .easyui-accordion ul{list-style-type:none;margin:0px; padding:10px;}
 .easyui-accordion ul li{ padding:0px;}
 .easyui-accordion ul li div{margin:2px 0px;padding-left:10px;padding-top:2px;text-align: left;border:0;}
-.easyui-accordion ul li div img{margin:4px ;vertical-align: middle; border: 0}
+.easyui-accordion ul li div img{margin:4px ;vertical-align: middle; border: 0;width: 24px;height: 24px}
+*/
 
 /*底部区域样式*/
 .buttom-layout {

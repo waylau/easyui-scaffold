@@ -53,8 +53,7 @@
 
   <!--左侧导航-->
   <div class="left-layout" data-options="region:'west',split:false,title:'菜单'" >
-      <div id="left-menu-content-id" class="easyui-accordion" border="false" style="width:120px;"  fit="false"  >
-
+      <div id="left-menu-content-id" class="easyui-accordion" border="true"   fit="true"  >
       </div>
 
   </div>
@@ -63,6 +62,7 @@
   <div data-options="region:'center'" border="true">
       <div id="tabs" class="easyui-tabs" fit="true" border="false">
       </div>
+
   </div>
 
   <!--底部信息-->
@@ -80,6 +80,16 @@
 
   </div>
 
+  <div id="tab_memu_id" class="easyui-menu" style="width:150px;">
+      <div id="mm-tabupdate">刷新</div>
+      <div class="menu-sep"></div>
+      <div id="mm-tabclose">关闭窗口</div>
+      <div id="mm-tabcloseall">全部关闭</div>
+      <div id="mm-tabcloseother">关闭其他窗口</div>
+      <div class="menu-sep"></div>
+      <div id="mm-tabcloseleft">关闭左侧窗口</div>
+      <div id="mm-tabcloseright">关闭右侧窗口</div>
+  </div>
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -101,6 +111,7 @@
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/date-util.js"></script>
         <script src="scripts/easyui-theme-change.js"></script>
+
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>
