@@ -1,0 +1,32 @@
+[
+        {
+            "title": "message 示例",
+            "icon": "images/left-menu/edit_48.png",
+            "url": "app/message/index.html"
+        },
+        {
+            "title": "accordion 示例",
+            "icon": "images/left-menu/edit_48.png",
+            "url": "app/accordion/index.html"
+        },
+        {
+            "title": "desktop 桌面图标",
+            "icon": "images/left-menu/edit_48.png",
+            "url": "app/desktop/index.html"
+        },
+        {
+            "title": "音乐管理",
+            "icon": "images/left-menu/music_48.png",
+            "url": "app/msg/index.html"
+        },
+        {
+            "title": "视频管理",
+            "icon": "images/left-menu/vedio_48.png",
+            "url": "app/help/index.html"
+        },
+        {
+            "title": "回收管理",
+            "icon": "images/left-menu/remove_48.png",
+            "url": "app/help/index.html"
+        }
+]

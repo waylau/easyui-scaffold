@@ -1,0 +1,74 @@
+<div>
+   <h1>accordion 示例</h1>
+
+    <script type="text/javascript">
+
+        //获取菜单
+        $(function () {
+// $.getJSON("/Admin/LoadMenuData", { channelID: "6fabd404-9d79-42a2-a98d-a4b0eb607812" },  这个你自己要重写了。MVC 的Action返回一个json，就是菜单要的数据了。
+            $.getJSON("data/left-menu.json",  function (data) {
+                $.each(data, function (i, item) {
+                    var groupInfo = item;
+                    var strMenuItemHTML = "";
+                    $.each(item.data, function (j, menu) {//font-weight:bold
+                        strMenuItemHTML += '<div style="height:22px;padding-top:10px;font-size:10pt;"><a onclick="AddTab(this)" src="' + menu.icon + '" class="menuLink">' + menu.title + '</a></div>';
+                    });
+                    $("#MenuGroup").accordion('add', {
+                        title: groupInfo.GroupName,
+                        content: strMenuItemHTML,
+                        selected: false
+                    });
+                });
+                //$("#MenuGroup").accordion('select', groupInfo.GroupName);
+
+            });
+        })
+        var AddTab = function (obj) {
+            var _obj = $(obj);
+            var title = _obj.text();
+            var src = _obj.attr("src");
+            CreateTabs();
+            var strHtml = '<iframe id="frmWorkArea" width="100%" height="100%" frameborder="0" scrolling="yes" src="' + src + '"></iframe>';
+            //判断Tab标签中是否有相同的数据标签
+            var isExist = $("#Tabs").tabs('exists', title);
+            if (!isExist) {
+                $('#Tabs').tabs('add', {
+                    title: title,
+                    fit: true,
+                    content: strHtml,
+                    closable: true
+                });
+            }
+            else {
+                $('#Tabs').tabs('select', title);
+            }
+        }
+
+        var CreateTabs = function () {
+            if ($("#Tabs").length > 0) {
+                $("#Tabs").show();
+                return;
+            }
+            $("#Main").html('<div id="Tabs""></div>');
+            $('#Tabs').tabs({
+                border: false,
+                fit: true,
+                onClose: ClearTabs
+            });
+        }
+        var ClearTabs = function () {
+            if ($('#Tabs').tabs("tabs").length == 0) {
+                $("#Tabs").hide();
+            }
+        }
+    </script>
+
+    <div region="north" border="false" style="height: 60px; background: #B3DFDA; padding: 10px; ">north region</div>
+    <div region="west" title="菜单导航" style="width: 150px;">
+        <div id="MenuGroup" class="easyui-accordion" fit="true" border="false" style="text-align: center;">
+        </div>
+    </div>
+    <div region="center" id="Main" title="用户管理">
+    </div>
+
+</div>

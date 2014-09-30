@@ -1,5 +1,8 @@
 "use strict";
 
+/**
+ * 初始化导航菜单
+ */
 var initLeftMenu = function(){
     $.ajax({
         //请求方式为get
@@ -10,29 +13,37 @@ var initLeftMenu = function(){
         dataType: "json",
         //请求成功完成后要执行的方法
         success: function( result ) {
-            if( result.data ){
-                var data = result.data;
+            if( result ){
+                var data = result;
                 var accd ='';
                 $.each( data,function( i, item ){
                     var group = item.group ;
                     var gorupData = item.data;
-                    accd += '<div  title="'+group+'" ><ul>';
+                    var iconCls = item.icon;
+                    accd = '<ul>';
 
                     $.each( gorupData,function( i, item ){
                         var title = item.title;
                         var icon = item.icon;
                         var url = item.url;
 
-                        accd += '<li><div class="menu-item"><a href="javascript:void(0);" class="easyui-linkbutton" plain="true" ';
+                        accd += '<li><div ><a href="javascript:void(0);" class="easyui-linkbutton" plain="true" ';
                         accd += 'onclick="javascript:addTabHref(\''+title+'\',\''+url+'\');return false;">';
                         accd += '<img src="' + icon + '" />'+ title+' </a></div></li>';
 
                     });
 
-                    accd += '</ul></div>';
-                })
-                $("#left-menu-content-id").html( accd );
-                $.parser.parse();
+                   accd += '</ul>';
+
+                    $("#left_menu_content_id").accordion('add', {
+                        title: group,
+                        content: accd,
+                        iconCls:iconCls
+                    });
+
+                });
+
+                $('#left_menu_content_id').accordion('select', 0)
             }
 
         },
@@ -103,7 +114,7 @@ function tabClose()
     $(".tabs-inner").dblclick(function(){
         var subtitle = $(this).children(".tabs-closable").text();
         $('#tabs').tabs('close',subtitle);
-    })
+    });
     /*为选项卡绑定右键*/
     $(".tabs-inner").bind('contextmenu',function(e){
         $('#tab_memu_id').menu('show', {
@@ -131,12 +142,12 @@ function tabCloseEven()
                 url:url
             }
         })
-    })
+    });
     //关闭当前
     $('#mm-tabclose').click(function(){
         var currtab_title = $('#tab_memu_id').data("currtab");
         $('#tabs').tabs('close',currtab_title);
-    })
+    });
     //全部关闭
     $('#mm-tabcloseall').click(function(){
         $('.tabs-inner span').each(function(i,n){
@@ -185,13 +196,61 @@ function tabCloseEven()
 /**
  * 弹窗
  */
-var slide = function (title,msg){
+var msgShow = function (title, msg,showType,timeout,showSpeed,width,height) {
     $.messager.show({
         title:title,
         msg:msg,
-        timeout:3000,
-        showType:'slide'
+        timeout:timeout,
+        showSpeed:showSpeed,
+        showType:showType,
+        width:width,
+        heigh:height
     });
+};
+
+/**
+ * 警告窗 e=error, q=question,i=info,w=warning.
+ */
+var msgAlert = function (title, msg, icon, fn) {
+
+    if ( /^e/.test(icon)) {
+        icon = 'error';
+    }else if ( /^q/.test(icon)) {
+        icon = 'question';
+    }else if ( /^i/.test(icon)) {
+        icon = 'info';
+    }else if ( /^w/.test(icon)) {
+        icon = 'warning';
+    }
+
+    $.messager.alert(
+        title,
+        msg,
+        icon,
+        fn
+    );
+};
+
+/**
+ * 确认窗
+ */
+var msgConfirm = function (title, msg, fn) {
+    $.messager.confirm(
+        title,
+        msg,
+        fn
+    );
+};
+
+/**
+ * 提示窗
+ */
+var msgPrompt = function (title, msg, fn) {
+    $.messager.prompt(
+        title,
+        msg,
+        fn
+    );
 };
 
 
