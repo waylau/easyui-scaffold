@@ -26,9 +26,10 @@ var initLeftMenu = function(){
                         var title = item.title;
                         var icon = item.icon;
                         var url = item.url;
+                        var type = item.type;
 
                         accd += '<li><div ><a href="javascript:void(0);" class="easyui-linkbutton" plain="true" ';
-                        accd += 'onclick="javascript:addTabHref(\''+title+'\',\''+url+'\');return false;">';
+                        accd += 'onclick="javascript:addTab('+type+',\''+title+'\',\''+url+'\');return false;">';
                         accd += '<img src="' + icon + '" />'+ title+' </a></div></li>';
 
                     });
@@ -64,6 +65,17 @@ var getDateTime = function () {
 };
 
 /**
+ * 加载Tabs
+ * type:0以 Content形式加载,1以Url 形式加载
+ */
+var addTab = function (type,title, url, closableValue) {
+    if (type == 0) {
+        addTabContent(title, url, closableValue)
+    } else if (type == 1) {
+        addTabHref(title, url, closableValue)
+    }
+};
+/**
  * Tabs  以  Content形式加载
  * @param closableValue 是指是否关闭窗口
  */
@@ -74,12 +86,31 @@ var addTabContent = function (title, url, closableValue) {
         if ("undefined" == typeof arguments[2]) {
             closableValue = true
         }
-        var content = '<iframe scrolling="auto" frameborder="0"  src="' + url + '" style="width:100%;height:100%;"></iframe>';
-        $('#tabs').tabs('add', {
-            title: title,
-            content: content,
-            closable: closableValue
+
+       // ajaxLoading('数据加载中...');
+        var iframe = document.createElement("iframe");
+        iframe.src = url;
+        iframe.scrolling = 'auto';
+        iframe.frameBorder = 0;
+        iframe.height = '100%';
+        iframe.width = '100%';
+
+        if (iframe.attachEvent){
+            iframe.attachEvent("onload", function(){
+                ajaxLoadEnd();
+            });
+        } else {
+            iframe.onload = function(){
+                ajaxLoadEnd();
+            };
+        }
+
+        $('#tabs').tabs('add',{
+            title:title,
+            content:iframe,
+            closable:closableValue
         });
+
     }
 
     tabClose();
@@ -104,10 +135,41 @@ var addTabHref = function (title, url, closableValue) {
         });
     }
 
-    tabClose();
+   tabClose();
 };
 
+/**
+ * Tabs 监听添加 tab事件
+ */
+var onAddTab = function() {
+    $('#tabs').tabs({
+        onAdd: function(title,index){
+            ajaxLoading('数据加载中...');
+        }
+    });
+};
 
+/**
+ * Tabs 监听更新 tab事件
+ */
+var onUpdateTab = function() {
+    $('#tabs').tabs({
+        onUpdate: function(panel){
+            ajaxLoading('数据加载中...');
+        }
+    });
+};
+
+/**
+ * Tabs 监听加载 tab完成事件
+ */
+var onLoadTab = function() {
+    $('#tabs').tabs({
+        onLoad: function(panel){
+            ajaxLoadEnd();
+        }
+    });
+};
 function tabClose()
 {
     /*双击关闭TAB选项卡*/
@@ -136,12 +198,16 @@ function tabCloseEven()
     $('#mm-tabupdate').click(function(){
         var currTab = $('#tabs').tabs('getSelected');
         var url = $(currTab.panel('options').content).attr('src');
+
+
         $('#tabs').tabs('update',{
             tab:currTab,
             options:{
                 url:url
             }
-        })
+
+        });
+
     });
     //关闭当前
     $('#mm-tabclose').click(function(){
@@ -164,8 +230,8 @@ function tabCloseEven()
     $('#mm-tabcloseright').click(function(){
         var nextall = $('.tabs-selected').nextAll();
         if(nextall.length==0){
-            //msgShow('系统提示','后边没有啦~~','error');
-            alert('后边没有啦~~');
+            msgShow('提示','后边没有啦~~');
+
             return false;
         }
         nextall.each(function(i,n){
@@ -178,7 +244,8 @@ function tabCloseEven()
     $('#mm-tabcloseleft').click(function(){
         var prevall = $('.tabs-selected').prevAll();
         if(prevall.length==0){
-            alert('到头了，前边没有啦~~');
+            msgShow('提示','到头了，前边没有啦~~');
+
             return false;
         }
         prevall.each(function(i,n){
@@ -292,6 +359,9 @@ $(document).ready(function () {
     $(function(){
         tabClose();
         tabCloseEven();
+        onAddTab();
+        onLoadTab();
+        onUpdateTab();
     })
 
 });
