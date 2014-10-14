@@ -354,7 +354,7 @@ $(document).ready(function () {
         });
     });
     /**
-     * 监听tab 右键事件
+     * 监听tab 事件
      */
     $(function(){
         tabClose();

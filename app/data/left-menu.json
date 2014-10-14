@@ -27,7 +27,13 @@
                 "url": "http://www.waylau.com/index.html",
                 "type":0
             }
-
+            ,
+            {
+                "title": "progress 示例",
+                "icon": "images/left-menu/edit_48.png",
+                "url": "app/progress/index.html",
+                "type":1
+            }
 
 
         ]

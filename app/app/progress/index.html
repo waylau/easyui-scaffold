@@ -1,0 +1,17 @@
+<div>
+   <h1>progress 示例</h1>
+    <script>
+        function showProcess(isShow, title, msg) {
+            if (!isShow) {
+                 $.messager.progress('close');
+                return;
+                }
+           var win = $.messager.progress({
+                 title: title,
+                    msg: msg
+           });
+        }
+
+        showProcess(true ,'dsfsd','dsfsdfsdfdsfsf');
+    </script>
+</div>
