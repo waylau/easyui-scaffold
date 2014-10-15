@@ -10,12 +10,6 @@
                 "type":1
             },
             {
-                "title": "accordion 示例",
-                "icon": "images/left-menu/edit_48.png",
-                "url": "app/accordion/index.html",
-                "type":1
-            },
-            {
                 "title": "desktop 桌面图标",
                 "icon": "images/left-menu/edit_48.png",
                 "url": "app/desktop/index.html",
