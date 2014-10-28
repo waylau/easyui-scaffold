@@ -28,7 +28,13 @@
                 "url": "app/progress/index.html",
                 "type":1
             }
-
+            ,
+            {
+                "title": "datagrid 示例",
+                "icon": "images/left-menu/edit_48.png",
+                "url": "app/datagrid/index.html",
+                "type":1
+            }
 
         ]
     },
