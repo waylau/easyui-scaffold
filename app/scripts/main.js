@@ -230,7 +230,7 @@ function tabCloseEven()
     $('#mm-tabcloseright').click(function(){
         var nextall = $('.tabs-selected').nextAll();
         if(nextall.length==0){
-            msgShow('提示','后边没有啦~~');
+            //msgShow('提示','后边没有啦~~');
 
             return false;
         }
@@ -244,7 +244,7 @@ function tabCloseEven()
     $('#mm-tabcloseleft').click(function(){
         var prevall = $('.tabs-selected').prevAll();
         if(prevall.length==0){
-            msgShow('提示','到头了，前边没有啦~~');
+            //msgShow('提示','到头了，前边没有啦~~');
 
             return false;
         }
