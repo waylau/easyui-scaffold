@@ -1,5 +1,8 @@
 easyui-scaffold
 ================
+Based on the [Easyui](www.jeasyui.com) front-end development of scaffold. The rapid establishment of enterprise application model.
+
+基于 EasyUI 前端开发脚手架。快速建立企业应用模型。
 
 #get project src 获取项目源码
 
