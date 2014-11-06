@@ -1,4 +1,3 @@
-"use strict";
 /**
  * 加载进度等待条
  * Created by waylau.com on 2014/9/23.
@@ -8,7 +7,8 @@
  * beforeSend:ajaxLoading 发送请求前打开进度条 环。
  */
 var ajaxLoading = function ( text ){
-    if("undefined" == typeof arguments[0])
+    "use strict";
+    if("undefined" === typeof arguments[0])
     {
         text = "正在处理，请稍候。。。";
     }
@@ -20,6 +20,7 @@ var ajaxLoading = function ( text ){
  * ajaxLoadEnd(); 任务执行成功，关闭进度条
  */
 var ajaxLoadEnd = function (){
+    "use strict";
     $(".datagrid-mask").remove();
     $(".datagrid-mask-msg").remove();
 };

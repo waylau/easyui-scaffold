@@ -44,12 +44,12 @@ var initLeftMenu = function(){
 
                 });
 
-                $('#left_menu_content_id').accordion('select', 0)
+                $('#left_menu_content_id').accordion('select', 0);
             }
 
         },
         error: function() {
-            alert('失败');
+            alert.show('失败');
         }
     });
 };
@@ -60,7 +60,7 @@ var getDateTime = function () {
     var weekArray = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
     var today = new Date();
     var week = weekArray[today.getDay()];
-    var dateime = today.format('yyyy-MM-dd hh:mm:ss')
+    var dateime = today.format('yyyy-MM-dd hh:mm:ss');
     $('#dateime_id').html(week + ' ' + dateime);
 };
 
@@ -69,10 +69,10 @@ var getDateTime = function () {
  * type:0以 Content形式加载,1以Url 形式加载
  */
 var addTab = function (type,title, url, closableValue) {
-    if (type == 0) {
-        addTabContent(title, url, closableValue)
-    } else if (type == 1) {
-        addTabHref(title, url, closableValue)
+    if (type === 0) {
+        addTabContent(title, url, closableValue);
+    } else if (type === 1) {
+        addTabHref(title, url, closableValue);
     }
 };
 /**
@@ -83,8 +83,8 @@ var addTabContent = function (title, url, closableValue) {
     if ($('#tabs').tabs('exists', title)) {
         $('#tabs').tabs('select', title);
     } else {
-        if ("undefined" == typeof arguments[2]) {
-            closableValue = true
+        if ("undefined" === typeof arguments[2]) {
+            closableValue = true;
         }
 
        // ajaxLoading('数据加载中...');
@@ -125,7 +125,7 @@ var addTabHref = function (title, url, closableValue) {
     if ($('#tabs').tabs('exists', title)) {
         $('#tabs').tabs('select', title);
     } else {
-        if ("undefined" == typeof arguments[2]) {
+        if ("undefined" === typeof arguments[2]) {
             closableValue = true
         }
         $('#tabs').tabs('add', {
@@ -211,8 +211,8 @@ function tabCloseEven()
     });
     //关闭当前
     $('#mm-tabclose').click(function(){
-        var currtab_title = $('#tab_memu_id').data("currtab");
-        $('#tabs').tabs('close',currtab_title);
+        var currtabTitle = $('#tab_memu_id').data("currtab");
+        $('#tabs').tabs('close',currtabTitle);
     });
     //全部关闭
     $('#mm-tabcloseall').click(function(){
@@ -229,7 +229,7 @@ function tabCloseEven()
     //关闭当前右侧的TAB
     $('#mm-tabcloseright').click(function(){
         var nextall = $('.tabs-selected').nextAll();
-        if(nextall.length==0){
+        if(nextall.length===0){
             //msgShow('提示','后边没有啦~~');
 
             return false;
@@ -243,7 +243,7 @@ function tabCloseEven()
     //关闭当前左侧的TAB
     $('#mm-tabcloseleft').click(function(){
         var prevall = $('.tabs-selected').prevAll();
-        if(prevall.length==0){
+        if(prevall.length===0){
             //msgShow('提示','到头了，前边没有啦~~');
 
             return false;
@@ -258,7 +258,7 @@ function tabCloseEven()
     //退出
     $("#mm-exit").click(function(){
         $('#tab_memu_id').menu('hide');
-    })
+    });
 }
 
 
@@ -266,7 +266,7 @@ $(document).ready(function () {
 
     //定时更新时间
     $(function () {
-        setInterval("getDateTime();", 1000);
+        setInterval(getDateTime(), 1000);
     });
 
     initLeftMenu();
