@@ -1,7 +1,8 @@
-"use strict";
+'use strict';
 /**
  * 修改easyUI 主题的方法
  * Created by liuweiwei on 2014/8/14.
+ * update by waylau.com on 2014-11-7.
  */
 var changeThemeFun = function(themeName) {
     var $easyuiTheme = $('#easyui_theme_id');
