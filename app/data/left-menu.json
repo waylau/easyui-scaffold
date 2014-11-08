@@ -47,7 +47,14 @@
                 "icon": "images/left-menu/remove_48.png",
                 "url": "app/help/index.html",
                 "type":1
+            },
+            {
+                "title": "视频播放器",
+                "icon": "images/left-menu/remove_48.png",
+                "url": "app/video/index.html",
+                "type":1
             }
+
         ]
     }
 ]
