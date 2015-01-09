@@ -266,7 +266,7 @@ $(document).ready(function () {
 
     //定时更新时间
     $(function () {
-        setInterval(getDateTime(), 1000);
+        setInterval('getDateTime()', 1000);
     });
 
     initLeftMenu();
