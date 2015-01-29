@@ -8,8 +8,8 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
-    <link id="easyui_theme_id" rel="stylesheet" type="text/css" href="bower_components/jquery-easyui-bower/themes/default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/jquery-easyui-bower/themes/icon.css">
+    <link id="easyui_theme_id" rel="stylesheet" type="text/css" href="bower_components/jquery.easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/jquery.easyui/themes/icon.css">
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
@@ -38,7 +38,7 @@
                  onclick="javascript:addTabContent('消息','app/msg/index.html' );return false;"> 消息</a>
               <a id="theme_id" href="javascript:void(0);" class="easyui-linkbutton" plain="true"> 换肤</a>
               <a href="javascript:void(0);" class="easyui-linkbutton" target="_blank" plain="true"
-                 onclick="javascript:window.open( 'app/personal/index.html');return false;">帮助</a>
+                 onclick="javascript:addTabHref('帮助', 'app/help/index.html');return false;">帮助</a>
           </div>
 
       </div>
@@ -71,7 +71,8 @@
           版权所有：<a href="javascript:void(0);" class="easyui-linkbutton" target="_blank" plain="true"
                   onclick="javascript:window.open( 'http://www.waylau.com');return false;"> www.waylau.com</a>&nbsp &nbsp
           &nbsp
-          version 0.9
+          version <a href="javascript:void(0);" class="easyui-linkbutton" target="_blank" plain="true"
+                     onclick="javascript:window.open( 'https://github.com/waylau/easyui-scaffold');return false;"> 0.9.1 </a>&nbsp &nbsp
       </div>
 
       <div class="buttom-right">
@@ -93,7 +94,7 @@
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/jquery-easyui-bower/jquery.easyui.min.js"></script>
+    <script src="bower_components/jquery.easyui/jquery.easyui.min.js"></script>
     <script src="bower_components/jquery-cookie/jquery.cookie.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
@@ -112,6 +113,7 @@
         <script src="scripts/date-util.js"></script>
         <script src="scripts/easyui-theme-change.js"></script>
         <script src="scripts/jquery-loading.js"></script>
+        <script src="scripts/msg.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>
