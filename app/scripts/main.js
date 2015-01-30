@@ -207,7 +207,9 @@ function tabCloseEven()
             }
 
         });
-
+        /*
+        currTab.panel('refresh',url);
+        */
     });
     //关闭当前
     $('#mm-tabclose').click(function(){
