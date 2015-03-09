@@ -25,7 +25,11 @@ The rapid establishment of enterprise application model.
 ####安装Grunt 和 grunt插件
 
 	$ npm install grunt --save-dev
- 
+
+####更新依赖包
+
+	$ bower update
+
 ###run
 
 	grunt serve
@@ -36,6 +40,9 @@ The rapid establishment of enterprise application model.
 
 ##Who’s Using easyui-scaffold?
 
+* 企业级能源管理中心
+
 ##Release History
 
-* v0.9.0  2014-11-6 增加了帮助说明
+* v0.9.2  2015-03-09 更新了 easyui 1.4.2 版本，增加了几套主题
+* v0.9.0  2014-11-06 增加了帮助说明
