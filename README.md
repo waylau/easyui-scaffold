@@ -42,6 +42,10 @@ The rapid establishment of enterprise application model.
 
 * 企业级能源管理中心
 
+##Screenshot
+
+![](http://99btgc01.info/uploads/2015/03/screenshot.jpg)
+
 ##Release History
 
 * v0.9.2  2015-03-09 更新了 easyui 1.4.2 版本，增加了几套主题
