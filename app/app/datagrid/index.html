@@ -2,19 +2,16 @@
     <h1>datagrid 示例</h1>
 
     <table id="tt" title="Column Group" class="easyui-datagrid"
-           singleSelect="true" iconCls="icon-save" rownumbers="true" width="100%" >
+           singleSelect="true" iconCls="icon-save" rownumbers="true" width="100%"
+           data-options="url:'app/datagrid/data/datagrid_data1.json',method:'get'">
         <thead>
         <tr>
             <th rowspan="2" field="itemid" width="80">Item ID</th>
             <th rowspan="2" field="productid" width="80">Product ID</th>
             <th colspan="4">Item Details</th>
-            <th rowspan="2" field="itemid2" width="80">Item ID</th>
-            <th rowspan="2" field="productid2" width="80">Product ID</th>
+            <th rowspan="2" field="itemid" width="80">Item ID2</th>
+            <th rowspan="2" field="productid" width="80">Product ID2</th>
             <th colspan="4">Item Details2  </th>
-
-
-
-
         </tr>
         <tr>
             <th field="listprice" width="80" align="right">List Price</th>
@@ -22,14 +19,13 @@
             <th field="attr1" width="100">Attribute</th>
             <th field="status" width="60" align="center">Stauts</th>
 
-            <th field="listprice2" width="80" align="right">List Pric2e<2/th>
-            <th field="unitcost2" width="80" align="right">Unit Cost2</th>
-            <th field="attr12" width="100">Attribute2</th>
-            <th field="status2" width="60" align="center">Stauts2</th>
+            <th field="listprice" width="80" align="right">List Price2</th>
+            <th field="unitcost" width="80" align="right">Unit Cost2</th>
+            <th field="attr1" width="100">Attribute2</th>
+            <th field="status" width="60" align="center">Stauts2</th>
         </tr>
 
         </thead>
 
     </table>
-    <script src="app/datagrid/scripts/datagrid.js"></script>
 </div>
